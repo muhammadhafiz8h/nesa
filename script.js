@@ -157,3 +157,16 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
 });
+
+songs.forEach((song, i) => {
+    const div = document.createElement("div");
+    div.className = "song-item";
+    div.id = "song-" + i;
+    div.innerText = (i + 1) + ". " + song.title;
+    div.onclick = () => {
+      current = i;
+      loadSong(i);
+      audio.play();
+    };
+    playlistDiv.appendChild(div);
+  });

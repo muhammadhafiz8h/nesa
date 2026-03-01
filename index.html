@@ -64,35 +64,198 @@
       </div>
     </section>
 
-    <div style="width:100%; margin-top:30px;">
-      <div style="
-        max-width:1300px;
-        margin:0 auto;
-        display:flex;
-        justify-content:center;
-      ">
-        <div
-          style="
-            padding:18px;
-            border-radius:22px;
-            background:rgba(197,50,50,0.08);
-            backdrop-filter:blur(10px);
-            box-shadow:0 10px 30px rgba(0,0,0,0.25);
-            transition:0.3s;
-          "
-          onmouseover="this.style.transform='scale(1.03)'"
-          onmouseout="this.style.transform='scale(1)'"
-        >
-          <iframe
-            src="https://open.spotify.com/embed/playlist/5pDtJ6IHY7TZec8I5qMUeU?utm_source=generator"
-            style="width:100%; max-width:460px; height:420px; border-radius:18px;"
-            frameborder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy">
-          </iframe>
+    <style>
+      /* PLAYER */
+      .player-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
+      }
+    
+      .player {
+        width: 350px;
+        padding: 20px;
+        border-radius: 25px;
+        background: rgba(255,255,255,0.08);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+        text-align: center;
+      }
+    
+      .cover {
+        width: 100%;
+        height: 200px;
+        border-radius: 15px;
+        object-fit: cover;
+        margin-bottom: 15px;
+      }
+    
+      .title {
+        font-size: 16px;
+      }
+    
+      .artist {
+        font-size: 13px;
+        opacity: 0.7;
+        margin-bottom: 15px;
+      }
+    
+      /* CONTROLS */
+      .controls button {
+        margin: 5px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 50%;
+        background: #FFB7C5;
+        color: white;
+        cursor: pointer;
+      }
+    
+      /* PROGRESS */
+      .progress {
+        width: 100%;
+        height: 5px;
+        background: #444;
+        border-radius: 10px;
+        margin: 15px 0;
+        cursor: pointer;
+      }
+    
+      .progress-bar {
+        height: 100%;
+        width: 0%;
+        background: #FFB7C5;
+        border-radius: 10px;
+      }
+    
+     /* PLAYLIST */
+    .playlist {
+      width: 350px;
+      margin: 20px auto;
+      max-height: 250px;
+      overflow-y: auto;
+    }
+    
+    .song-item {
+      padding: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+      .song-item:hover {
+        background: rgba(255,255,255,0.1);
+      }
+    
+      .active {
+        color: #FFB7C5;
+      }
+      </style>
+      </head>
+    
+      <body>
+    
+      <div class="player-wrapper">
+        <div class="player">
+          <img src="WhatsApp Image 2026-03-01 at 9.14.34 PM.jpeg" class="cover" id="cover">
+    
+          <div class="title" id="title"></div>
+          <div class="artist">for you 🤍</div>
+    
+          <div class="progress" onclick="setProgress(event)">
+            <div class="progress-bar" id="progress-bar"></div>
+          </div>
+    
+          <div class="controls">
+            <button onclick="prevSong()">⏮</button>
+            <button onclick="playPause()">▶</button>
+            <button onclick="nextSong()">⏭</button>
+          </div>
+    
+          <audio id="audio"></audio>
         </div>
       </div>
-    </div>
+    
+      <!-- PLAYLIST -->
+      <div class="playlist" id="playlist"></div>
+    
+      <script>
+        const songs = [
+          { title: "Fearless (Taylor’s Version)", src: "01. [Spotitrack] Fearless (Taylor’s Version) - Taylor Swift.mp3" },
+          { title: "A Thousand Years", src: "02. [Spotitrack] a thousand years - Christina Perri.mp3" },
+          { title: "Perfect", src: "03. [Spotitrack] Perfect - Ed Sheeran.mp3" },
+          { title: "Glue Song", src: "04. [Spotitrack] Glue Song - beabadoobee.mp3" },
+          { title: "I Love You So", src: "05. [Spotitrack] I Love You So - The Walters.mp3" },
+          { title: "You Belong With Me (Taylor’s Version)", src: "06. [Spotitrack] You Belong With Me (Taylor’s Version) - Taylor Swift.mp3" },
+          { title: "Count on Me", src: "07. [Spotitrack] Count on Me - Bruno Mars.mp3" },
+          { title: "Just the Way You Are", src: "08. [Spotitrack] Just the Way You Are - Bruno Mars.mp3" },
+          { title: "I'm Yours", src: "09. [Spotitrack] I'm Yours - Jason Mraz.mp3" },
+          { title: "Enchanted (Taylor's Version)", src: "10. [Spotitrack] Enchanted (Taylor's Version) - Taylor Swift.mp3" },
+          { title: "Marry You", src: "11. [Spotitrack] Marry You - Bruno Mars.mp3" },
+          { title: "Love Story (Taylor’s Version)", src: "12. [Spotitrack] Love Story (Taylor’s Version) - Taylor Swift.mp3" },
+          { title: "Can't Help Falling In Love", src: "13. [Spotitrack] Can't Help Falling In Love - with The Royal Philharmonic Orchestra - Elvis Presley, Royal Philharmonic Orchestra.mp3" },
+          { title: "seasons", src: "14. [Spotitrack] seasons - wave to earth.mp3" },
+          { title: "bad", src: "15. [Spotitrack] bad - wave to earth.mp3" },
+          { title: "P.S. I LOVE YOU", src: "16. [Spotitrack] P.S. I LOVE YOU - Paul Partohap.mp3" },
+          { title: "An Art Gallery Could Never Be As Unique As You", src: "17. [Spotitrack] An Art Gallery Could Never Be As Unique As You - mrld.mp3" },
+          { title: "lowkey", src: "18. [Spotitrack] lowkey - NIKI.mp3" },
+          { title: "Saturn", src: "19. [Spotitrack] Saturn - SZA.mp3" },
+          { title: "My Everything", src: "20. [Spotitrack] My Everything - Ariana Grande.mp3" }
+        ];
+    
+      let current = 0;
+      const audio = document.getElementById("audio");
+      const playlistDiv = document.getElementById("playlist");
+    
+      function loadSong(i) {
+        document.getElementById("title").innerText = songs[i].title;
+        audio.src = songs[i].src;
+    
+        document.querySelectorAll(".song-item").forEach(el => el.classList.remove("active"));
+        document.getElementById("song-" + i).classList.add("active");
+      }
+    
+      function playPause() {
+        audio.paused ? audio.play() : audio.pause();
+      }
+    
+      function nextSong() {
+        current = (current + 1) % songs.length;
+        loadSong(current);
+        audio.play();
+      }
+    
+      function prevSong() {
+        current = (current - 1 + songs.length) % songs.length;
+        loadSong(current);
+        audio.play();
+      }
+    
+      audio.addEventListener("timeupdate", () => {
+        document.getElementById("progress-bar").style.width =
+          (audio.currentTime / audio.duration) * 100 + "%";
+      });
+    
+      audio.addEventListener("ended", nextSong);
+    
+      function setProgress(e) {
+        audio.currentTime = (e.offsetX / e.currentTarget.clientWidth) * audio.duration;
+      }
+    
+      /* GENERATE PLAYLIST */
+      songs.forEach((song, i) => {
+        const div = document.createElement("div");
+        div.className = "song-item";
+        div.id = "song-" + i;
+        div.innerText = (i + 1) + ". " + song.title;
+        div.onclick = () => {
+          current = i;
+          loadSong(i);
+          audio.play();
+        };
+        playlistDiv.appendChild(div);
+      });
+    
+      loadSong(current);
+      </script>
 
     <!-- Section 3: The Timeline -->
     <section class="my-16 md:my-24">
