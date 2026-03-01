@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday!</title>
+
+  <!-- This script pulls in Tailwind CSS for styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- These are for the animations and photo gallery -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css" />
+
+  <!-- Google Fonts for the Anime look -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Link to your new external CSS file -->
+  <link rel="stylesheet" href="style.css">
+  <!-- IMPORTANT: Replace with a real image link after you upload it -->
+  <meta property="og:image" content="https://placehold.co/1200x630/87CEEB/FFFFFF?text=A+Surprise+For+[Name]">
+</head>
+
+<body>
+  <!-- Canvas for the falling cherry blossoms -->
+  <canvas id="sakura-canvas"></canvas>
+  <!-- Section 1: Hero Welcome -->
+  <header class="h-screen relative flex items-center justify-center text-white overflow-hidden">
+    <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
+      <source src="lv_7585139697781984513_20260221185802.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+    <div class="text-center z-10 p-4" data-aos="fade-in" data-aos-duration="1500">
+      <h1 class="text-5xl md:text-7xl font-anime drop-shadow-lg">Happy Birthday Niqma Arthanezha Arifin!</h1>
+      <p class="mt-4 text-xl font-semibold">Celebrating a wonderful journey of you</p>
+      <div id="countdown" class="mt-6 text-2xl font-semibold tracking-widest leading-relaxed"></div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto p-6 md:p-12">
+  
+    <!-- Section 2: A Letter For You -->
+    <section class="my-16 md:my-24 max-w-3xl mx-auto text-center" data-aos="fade-up">
+      <h2 class="text-4xl md:text-5xl font-anime text-sakura mb-8 drop-shadow-sm">A Special Message For You</h2>
+      <div class="text-left text-lg leading-relaxed space-y-4 bg-white p-8 rounded-lg shadow-lg">
+        <!-- TODO: Write your personal letter here -->
+        <p>Hii Nesaa,</p>
+        <p>Happy Birthday, my love 🤍</p>
+        <p>May God fulfill all your wishes, ngasih kamu kebahagiaan yang nggak ada habisnya, dan pelan-pelan ngewujudin semua mimpi kamu jadi nyata, one by one, in the right time. I hope your life is always surrounded by things you love, penuh sama little moments yang bikin kamu senyum tanpa alasan, dan cerita-cerita indah yang rasanya kayak lagi di dalam manga.</p>
+        <p>I hope you always find your way back to things that make you feel alive, even on days that feel a little heavy. Semoga kamu selalu dikelilingi orang-orang baik, yang ngerti kamu tanpa harus banyak dijelasin, dan selalu ada hal kecil yang bikin kamu tetap kuat jalan ke depan.</p>
+        <p>Thank you for being such a kind soul, jadi alasan di balik banyak senyuman, dan punya warmth yang bikin orang-orang ngerasa nyaman di dekat kamu. Kamu tetap jadi diri kamu sendiri, tulus ke semua orang, nggak pernah maksa jadi orang lain dan itu jarang banget. Honestly, being you is already your magic, and I hope you never forget that.</p>
+        <p>No matter where life takes you, I hope you always stay this genuine, this soft, and this strong at the same time. And if things ever get overwhelming, just remember you don’t have to go through it alone.</p>
+        <p class="text-right mt-8">
+          Regards<br>
+        </p>
+      </div>
+    </section>
+
+    <div style="width:100%; margin-top:30px;">
+      <div style="
+        max-width:1300px;
+        margin:0 auto;
+        display:flex;
+        justify-content:center;
+      ">
+        <div
+          style="
+            padding:18px;
+            border-radius:22px;
+            background:rgba(197,50,50,0.08);
+            backdrop-filter:blur(10px);
+            box-shadow:0 10px 30px rgba(0,0,0,0.25);
+            transition:0.3s;
+          "
+          onmouseover="this.style.transform='scale(1.03)'"
+          onmouseout="this.style.transform='scale(1)'"
+        >
+          <iframe
+            src="https://open.spotify.com/embed/playlist/5pDtJ6IHY7TZec8I5qMUeU?utm_source=generator"
+            style="width:100%; max-width:460px; height:420px; border-radius:18px;"
+            frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: The Timeline -->
+    <section class="my-16 md:my-24">
+      <h2 class="text-4xl md:text-5xl font-anime text-center mb-12" data-aos="fade-up">Nesa Birthday</h2>
+      <div class="space-y-16">
+        <!-- Timeline Item 1 -->
+        <div class="flex flex-col md:flex-row items-center gap-8" data-aos="fade-right">
+          <!-- TODO: Replace with your photo -->
+          <img src="IMG_20250630_165951.jpg" alt="Add photo 1"
+            class="w-full md:w-1/2 rounded-lg shadow-xl border-4 border-white">
+          <div class="text-center md:text-left">
+            <!-- TODO: Customize the date and story -->
+            <h3 class="text-2xl font-anime text-sakura">Part 1</h3>
+            <p class="mt-2 text-lg">Hari ini spesial karena kamu, jadi happy birthday ya sayang. Kamu itu orang yang berarti banget buat aku, dan honestly being with you feels easy in a good way, nggak harus selalu sempurna, tapi selalu cukup. Kamu punya cara sendiri buat bikin semuanya terasa lebih tenang dan lebih ringan, dan aku suka itu, lebih dari yang mungkin sering aku bilang. Thank you for being you, for staying, and for choosing to care, it really means a lot to me. Semoga ke depan hal-hal baik terus datang ke kamu, and whatever happens, I’ll be around.
+            </p>
+            <br>
+          </div>
+        </div>
+        <!-- Timeline Item 2 -->
+        <div class="flex flex-col md:flex-row-reverse items-center gap-8" data-aos="fade-left">
+          <!-- TODO: Replace with your photo -->
+          <img src="IMG-20250905-WA0027.jpg" alt="Add photo 2"
+            class="w-full md:w-1/2 rounded-lg shadow-xl border-4 border-white">
+          <div class="text-center md:text-right">
+            <!-- TODO: Customize the date and story -->
+            <h3 class="text-2xl font-anime text-sakura">Part 2</h3>
+            <p class="mt-2 text-lg">Dan aku juga mau minta maaf untuk hal-hal yang mungkin pernah bikin kamu nggak nyaman, terutama sikap aku yang kadang suka ngambek, suka bikin kamu bete karena terlalu sibuk sama hal lain, atau bahkan suka ngeledekin kamu sampai bikin kamu risih. I know I’m not perfect, and I’m still learning to be better—for you, and for us.
+
+              Thank you for being such an amazing partner, yang tetap sabar dan tetap milih buat stay. Itu bukan hal yang kecil, dan aku benar-benar hargai itu.</p>
+            <br>
+          </div>
+        </div>
+        <!-- Timeline Item 3 (NEW) -->
+        <div class="flex flex-col md:flex-row items-center gap-8" data-aos="fade-right">
+          <img src="IMG-20250809-WA0095.jpg" alt="Add photo 3"
+            class="w-full md:w-1/2 rounded-lg shadow-xl border-4 border-white">
+          <div class="text-center md:text-left">
+            <h3 class="text-2xl font-anime text-sakura">Part 3</h3>
+            <p class="mt-2 text-lg">Aku berharap hari ini dan tahun-tahun ke depan penuh dengan kebahagiaan, cinta, dan hal-hal baik yang kamu pantas dapetin, and I hope everything you’re working for slowly comes your way. Aku juga pengen kita tetap bareng, saling dukung tanpa banyak drama, dan pelan-pelan tumbuh bareng jadi versi terbaik dari diri kita masing-masing. I want us to keep choosing each other, every day, in a simple but real way. Aku cinta kamu, more than I can ever put into words.
+            </p>
+            <br>
+          </div>
+        </div>
+        <!-- Timeline Item 4 (NEW) -->
+        <div class="flex flex-col md:flex-row-reverse items-center gap-8" data-aos="fade-left">
+          <img src="1000001938.jpg" alt="Add photo4" class="w-full md:w-1/2 rounded-lg shadow-xl border-4 border-white">
+          <div class="text-center md:text-right">
+            <h3 class="text-2xl font-anime text-sakura">Part 4</h3>
+            <p class="mt-2 text-lg">Sebagai penutup, aku cuma mau bilang kalau aku bener-bener bersyukur punya kamu di hidup aku. Dari semua hal yang udah kita lewatin, aku sadar kalau hal-hal kecil sama kamu pun selalu punya arti. I’m really glad it’s you, dan dari semua kemungkinan yang ada, aku dapet kamu and I wouldn’t trade that for anything. Semoga kita bisa terus jalan bareng, pelan-pelan tapi pasti, tanpa harus jadi sempurna, yang penting tetap saling milih satu sama lain. I Love U</p>
+            <br>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Sanchita's Favorite Anime (NEW SECTION) -->
+    <section class="my-16 md:my-24 overflow-hidden px-4">
+      <h2 class="text-4xl md:text-5xl font-anime text-center mb-10" data-aos="fade-up">Hall of Fame</h2>
+      
+      <div class="relative">
+        <div id="hall-of-fame-scroller" 
+             class="flex overflow-x-auto snap-x snap-mandatory gap-6 scrollbar-hide pb-8" 
+             style="scroll-behavior: smooth; -webkit-overflow-scrolling: touch;">
+          
+          <div class="snap-center flex-shrink-0 w-[85%] sm:w-[45%] md:w-[30%] lg:w-[22%]" data-aos="fade-up">
+            <div class="bg-white p-4 rounded-2xl shadow-xl text-center h-full border border-pink-100">
+              <img src="IMG-20260222-WA0022.jpg" class="w-full aspect-[3/4] object-cover rounded-xl mb-4 shadow-sm">
+              <h3 class="text-xl font-anime text-sakura">Photo 1</h3>
+              <p class="mt-2 text-sm text-gray-600 italic">Lucu banget kuning-kuning</p>
+            </div>
+          </div>
+    
+          <div class="snap-center flex-shrink-0 w-[85%] sm:w-[45%] md:w-[30%] lg:w-[22%]" data-aos="fade-up">
+            <div class="bg-white p-4 rounded-2xl shadow-xl text-center h-full border border-pink-100">
+              <img src="IMG-20250707-WA0066.jpg" class="w-full aspect-[3/4] object-cover rounded-xl mb-4 shadow-sm">
+              <h3 class="text-xl font-anime text-sakura">Photo 2</h3>
+              <p class="mt-2 text-sm text-gray-600 italic">Nesa secantik itu</p>
+            </div>
+          </div>
+    
+          <div class="snap-center flex-shrink-0 w-[85%] sm:w-[45%] md:w-[30%] lg:w-[22%]" data-aos="fade-up">
+            <div class="bg-white p-4 rounded-2xl shadow-xl text-center h-full border border-pink-100">
+              <img src="IMG-20250708-WA0056.jpg" class="w-full aspect-[3/4] object-cover rounded-xl mb-4 shadow-sm">
+              <h3 class="text-xl font-anime text-sakura">Photo 3</h3>
+              <p class="mt-2 text-sm text-gray-600 italic">Dia kayak lagi godain aku gaksih</p>
+            </div>
+          </div>
+    
+          <div class="snap-center flex-shrink-0 w-[85%] sm:w-[45%] md:w-[30%] lg:w-[22%]" data-aos="fade-up">
+            <div class="bg-white p-4 rounded-2xl shadow-xl text-center h-full border border-pink-100">
+              <img src="1000001945.jpg" class="w-full aspect-[3/4] object-cover rounded-xl mb-4 shadow-sm">
+              <h3 class="text-xl font-anime text-sakura">Photo 4</h3>
+              <p class="mt-2 text-sm text-gray-600 italic">SO CUTEEEE!!!</p>
+            </div>
+          </div>
+    
+          <div class="snap-center flex-shrink-0 w-[85%] sm:w-[45%] md:w-[30%] lg:w-[22%]" data-aos="fade-up">
+            <div class="bg-white p-4 rounded-2xl shadow-xl text-center h-full border border-pink-100">
+              <img src="IMG-20260222-WA0048.jpg" class="w-full aspect-[3/4] object-cover rounded-xl mb-4 shadow-sm">
+              <h3 class="text-xl font-anime text-sakura">Photo 5</h3>
+              <p class="mt-2 text-sm text-gray-600 italic">Biduan nya aku</p>
+            </div>
+          </div>
+    
+          <div class="snap-center flex-shrink-0 w-[85%] sm:w-[45%] md:w-[30%] lg:w-[22%]" data-aos="fade-up">
+            <div class="bg-white p-4 rounded-2xl shadow-xl text-center h-full border border-pink-100">
+              <img src="IMG-20260222-WA0039.jpg" class="w-full aspect-[3/4] object-cover rounded-xl mb-4 shadow-sm">
+              <h3 class="text-xl font-anime text-sakura">Photo 6</h3>
+              <p class="mt-2 text-sm text-gray-600 italic"> WOW</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="my-16 md:my-24">
+      <h2 class="text-4xl md:text-5xl font-anime text-center mb-12" data-aos="fade-up">Collection</h2>
+      <div class="relative">
+    <!-- Section 5: The Gallery -->
+    <h3 class="text-2xl font-anime text-center mb-6">Photos</h3>
+
+    <div id="photo-gallery" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <!-- SEMUA FOTO DI SINI -->
+    <a href="IMG-20250627-WA0091.jpg" data-aos="zoom-in" class="block w-full aspect-square">
+        <img src="IMG-20250627-WA0091.jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 1">
+    </a>
+    <a href="IMG-20250707-WA0079.jpg" data-aos="zoom-in" data-aos-delay="100" class="block w-full aspect-square">
+        <img src="IMG-20250707-WA0079.jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 2">
+    </a>
+    <a href="IMG-20251114-WA0012.jpg" data-aos="zoom-in" data-aos-delay="200" class="block w-full aspect-square">
+        <img src="IMG-20251114-WA0012.jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 3">
+    </a>
+    <a href="IMG-20260222-WA0023.jpg" data-aos="zoom-in" data-aos-delay="300" class="block w-full aspect-square">
+        <img src="IMG-20260222-WA0023.jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 4">
+    </a>
+    <a href="20251128_141244(2).jpg" data-aos="zoom-in" data-aos-delay="400" class="block w-full aspect-square">
+        <img src="20251128_141244(2).jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 5">
+    </a>
+    <a href="IMG-20250714-WA0023.jpg" data-aos="zoom-in" data-aos-delay="500" class="block w-full aspect-square">
+        <img src="IMG-20250714-WA0023.jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 6">
+    </a>
+    <a href="retouch_2025111600055972.jpg" data-aos="zoom-in" data-aos-delay="600" class="block w-full aspect-square">
+        <img src="retouch_2025111600055972.jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 7">
+    </a>
+    <a href="IMG-20251109-WA0053.jpg" data-aos="zoom-in" data-aos-delay="700" class="block w-full aspect-square">
+        <img src="IMG-20251109-WA0053.jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 8">
+    </a>
+    </div>
+    <h3 class="text-2xl font-anime text-center mt-12 mb-6">Videos</h3>
+
+    <div id="video-gallery" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+  <!-- SEMUA VIDEO DI SINI -->
+    <a data-lg-size="1280-720" data-video='{"source": [{"src":"VID-20250707-WA0075.mp4", "type":"video/mp4"}],"attributes": {"preload": "auto", "controls": true}}' class="block w-full aspect-square">
+      <div class="relative w-full h-full overflow-hidden rounded-lg border-4 border-white bg-black">
+        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-contain">
+          <source src="VID-20250707-WA0075.mp4" type="video/mp4">
+        </video>
+      </div>
+    </a>
+    <a data-lg-size="1280-720" data-video='{"source": [{"src":"VID-20260222-WA0009.mp4", "type":"video/mp4"}],"attributes": {"preload": "auto", "controls": true}}' class="block w-full aspect-square">
+      <div class="relative w-full h-full overflow-hidden rounded-lg border-4 border-white bg-black">
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-contain">
+          <source src="VID-20260222-WA0009.mp4" type="video/mp4">
+        </video>
+      </div>
+    </a>
+
+    <a data-lg-size="1280-720" data-video='{"source": [{"src":"20260117_203754.mp4", "type":"video/mp4"}],"attributes": {"preload": "auto", "controls": true}}' class="block w-full aspect-square">
+      <div class="relative w-full h-full overflow-hidden rounded-lg border-4 border-white bg-black">
+        <video autoplay controls muted playsinline class="absolute inset-0 w-full h-full object-contain">
+          <source src="20260117_203754.mp4" type="video/mp4">
+        </video>
+      </div>
+    </a>
+
+    <a data-lg-size="1280-720" data-video='{"source": [{"src":"1000002042.mp4", "type":"video/mp4"}]}' class="block w-full aspect-square">
+      <div class="relative w-full h-full overflow-hidden rounded-lg border-4 border-white bg-black">
+        <video autoplay loop muted class="absolute inset-0 w-full h-full object-contain">
+          <source src="1000002042.mp4" type="video/mp4">
+        </video>
+      </div>
+    </a>
+  </div>
+</div>
+
+    <!-- Section 6: Video Finale -->
+    <section class="my-16 md:my-24" data-aos="fade-up">
+      <h2 class="text-4xl md:text-5xl font-anime text-center mb-4">Happy Birthday Nesaa</h2>
+      <div class="max-w-4xl mx-auto rounded-lg shadow-2xl overflow-hidden bg-navy">
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-navy text-white p-8 text-center">
+    <p>Enjoy your day to the fullest.</p>
+    <p class="text-sm opacity-70 mt-2">Hope you liked it...</p>
+  </footer>
+
+  <!-- These scripts are for the animations and photo gallery -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
+
+  <!-- Link to your new external JavaScript file -->
+  <script src="script.js"></script>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/plugins/video/lg-video.min.js"></script>
+
+  <script>
+    // Pastikan inisialisasi ini yang paling baru
+    lightGallery(document.getElementById('lightgallery'), {
+      plugins: [lgVideo],
+      speed: 500,
+      videoMaxWidth: '100%',
+      autoplayVideoOnSlide: true, // INI KUNCINYA: Biar gak hitam pas digeser
+      gotoNextSlideOnVideoEnd: false,
+      download: false,
+      // Menambahkan preload agar video lebih cepat muncul
+      preload: 2 
+    });
+  </script>
+</body>
+
+</html>
