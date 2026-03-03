@@ -166,7 +166,7 @@
     
           <div class="controls">
             <button onclick="prevSong()">⏮</button>
-            <button onclick="playPause()">▶</button>
+            <button onclick="playPause()" id="playBtn">▶</button>
             <button onclick="nextSong()">⏭</button>
           </div>
     
@@ -179,7 +179,7 @@
     
       <script>
         const songs = [
-          { title: "Count on Me", src: "01 Bruno Mars - Count On Me (1).mp3" },
+          { title: "Count on Me", src: "1.mp3" },
           { title: "Fearless (Taylor’s Version)", src: "01. [Spotitrack] Fearless (Taylor’s Version) - Taylor Swift.mp3" },
           { title: "A Thousand Years", src: "02. [Spotitrack] a thousand years - Christina Perri.mp3" },
           { title: "Perfect", src: "03. [Spotitrack] Perfect - Ed Sheeran.mp3" },
@@ -204,6 +204,7 @@
       let current = 0;
       const audio = document.getElementById("audio");
       const playlistDiv = document.getElementById("playlist");
+      const playBtn = document.getElementById("playBtn");
     
       function loadSong(i) {
         document.getElementById("title").innerText = songs[i].title;
@@ -255,7 +256,20 @@
       });
     
       loadSong(current);
+      window.addEventListener("load", () => {
+        audio.play().catch(() => {});
+      });
+
+      audio.addEventListener("play", () => {
+        playBtn.innerText = "⏸";
+      });
+
+      audio.addEventListener("pause", () => {
+        playBtn.innerText = "▶";
+      });
       </script>
+
+      
 
     <!-- Section 3: The Timeline -->
     <section class="my-16 md:my-24">
