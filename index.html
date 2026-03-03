@@ -129,16 +129,20 @@
       }
     
      /* PLAYLIST */
-    .playlist {
+     .playlist {
       width: 350px;
       margin: 20px auto;
       max-height: 250px;
       overflow-y: auto;
+
+      display: flex;
+      flex-direction: column; /* INI YANG PENTING */
     }
     
     .song-item {
       padding: 10px;
       border-bottom: 1px solid rgba(255,255,255,0.1);
+      width: 100%; /* TAMBAH INI */
     }
     
       .song-item:hover {
@@ -181,7 +185,6 @@
         const songs = [
           { title: "Count on Me", src: "1.mp3" },
           { title: "Fearless (Taylor’s Version)", src: "01. [Spotitrack] Fearless (Taylor’s Version) - Taylor Swift.mp3" },
-          { title: "A Thousand Years", src: "02. [Spotitrack] a thousand years - Christina Perri.mp3" },
           { title: "Perfect", src: "03. [Spotitrack] Perfect - Ed Sheeran.mp3" },
           { title: "Glue Song", src: "04. [Spotitrack] Glue Song - beabadoobee.mp3" },
           { title: "I Love You So", src: "05. [Spotitrack] I Love You So - The Walters.mp3" },
@@ -209,9 +212,15 @@
       function loadSong(i) {
         document.getElementById("title").innerText = songs[i].title;
         audio.src = songs[i].src;
-    
+
         document.querySelectorAll(".song-item").forEach(el => el.classList.remove("active"));
-        document.getElementById("song-" + i).classList.add("active");
+
+        const activeSong = document.getElementById("song-" + i);
+        activeSong.classList.add("active");
+
+        if (i === 0) {
+          playlistDiv.scrollTop = 0;
+        }
       }
     
       function playPause() {
@@ -219,7 +228,7 @@
       }
     
       function nextSong() {
-        current = (current + 1) % songs.length;
+        current = (current + 1) % songs.length; 
         loadSong(current);
         audio.play();
       }
